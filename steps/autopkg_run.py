@@ -41,7 +41,7 @@ def main():
     # check out recipes
     if os.path.exists(checkout_dir):
         shutil.rmtree(checkout_dir)
-    subprocess.call([git_path, 'clone', 'https://github.com/autopkg/recipes', checkout_dir])
+    subprocess.call([git_path, 'clone', 'https://bitbucket.org/mholtrlc/autopkg-recipes', checkout_dir])
 
     # make temp report plist
     report_file = mkstemp()[1]
