@@ -47,7 +47,7 @@ def main():
     report_file = mkstemp()[1]
 
     # make fake Munki repo
-    munki_repo_path = '/private/tmp/autopkg-ci-munki-repo'
+    munki_repo_path = '/Users/Shared/Jenkins/munki_repo'
     if not os.path.isdir(munki_repo_path):
         os.mkdir(munki_repo_path)
 

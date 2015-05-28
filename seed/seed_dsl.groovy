@@ -22,7 +22,9 @@ streamFileFromWorkspace("${RECIPE_LIST_FILE}").eachLine {
 
     steps {
       shell("echo ${recipeName} > recipe.txt")
+      shell("sshfs ubuntu@munki01.reallifechurch.org:/var/www/munki/ /Users/Shared/Jenkins/munki_repo/ -o volname=munki_repo,auto_cache,reconnect,defer_permissions,negative_vncache")
       shell(readFileFromWorkspace('autopkg-ci/steps/autopkg_run.py'))
+      shell("umount /Users/Shared/Jenkins/munki_repo")
     }
 
     publishers {
