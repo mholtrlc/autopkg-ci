@@ -10,7 +10,7 @@ streamFileFromWorkspace("${RECIPE_LIST_FILE}").eachLine {
 
     //logRotator(int daysToKeepInt, int numToKeepInt, int artifactDaysToKeepInt, int artifactNumToKeepInt)
     logRotator(30, -1, -1, -1)
-    label('mavericks')
+    label('master')
 
     multiscm {
       git('git://github.com/autopkg/autopkg.git', 'master')
