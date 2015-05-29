@@ -24,6 +24,7 @@ streamFileFromWorkspace("${RECIPE_LIST_FILE}").eachLine {
       shell("echo ${recipeName} > recipe.txt")
       shell("/usr/local/bin/sshfs ubuntu@munki01.reallifechurch.org:/var/www/munki/ /Users/Shared/Jenkins/munki_repo/ -o volname=munki_repo,auto_cache,reconnect,defer_permissions,negative_vncache")
       shell(readFileFromWorkspace('autopkg-ci/steps/autopkg_run.py'))
+      shell("/usr/local/munki/makecatalogs /Users/Shared/Jenkins/munki_repo")
       shell("/sbin/umount /Users/Shared/Jenkins/munki_repo")
     }
 
